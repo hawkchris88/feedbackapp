@@ -1,0 +1,39 @@
+function App(){
+    const title='Blog Post'
+    const body='This is my blog'
+    const comments=[
+        {id:1, text:"comment 1"},
+        {id:1, text:"comment 2"},
+        {id:1, text:"comment 3"},
+        {id:1, text:"comment 4"}
+    ]
+    const loading=false
+    const showComments=false
+    const commentsData = ( <div className="comments">
+    <h3>Comments ({comments.length})</h3>
+    <ul>
+       {
+           comments.map(
+               (comment,index)=>(
+                   <li key={index}>{comment.text}</li>
+               )
+           )
+       }
+    </ul>
+</div>)
+
+    if (loading) return <h1>.....loading</h1>
+    return (
+    <div className="container">
+        <h1>{title.toUpperCase}</h1>
+        <p>{body}</p>
+        {showComments && commentsData}
+      
+    </div>
+    
+    
+    )
+    
+}
+
+export default App
